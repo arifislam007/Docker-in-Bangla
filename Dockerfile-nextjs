@@ -1,0 +1,21 @@
+# Base image
+FROM node:14-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# Copy source files
+COPY . .
+
+# Build the application
+RUN yarn build
+
+# Expose the port next runs on
+EXPOSE 3000
+
+# Command to run the application
+CMD ["yarn", "start"]
