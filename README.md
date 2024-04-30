@@ -1,16 +1,41 @@
-Docker বেসিকস ফর বিগিনার্স
-প্রজেক্ট বিবরণী:
+## Docker বেসিকস ফর বিগিনার্স
+
+### প্রজেক্ট বিবরণী:
 এই প্রজেক্টটি নতুন ডেভেলপারদের Docker এর মূল ধারণা এবং এর ব্যবহার শেখানোর জন্য ডিজাইন করা হয়েছে। এখানে আপনি শিখতে পারবেন কিভাবে একটি সাধারণ নোড জেএস অ্যাপ্লিকেশনকে Dockerize করতে হয়।
 
-প্রয়োজনীয়তা:
-Docker ইনস্টল করা থাকতে হবে। ইনস্টলেশন গাইডের জন্য Docker অফিসিয়াল সাইট দেখুন।
-সেটআপ প্রক্রিয়া:
-গিট ক্লোন:
-প্রথমে এই রিপোজিটরি ক্লোন করুন:
-bash
-Copy code
-git clone https://github.com/your-username/your-repository-name.git
-ডিরেক্টরিতে প্রবেশ করুন:
-bash
-Copy code
-cd your-repository-name
+### প্রয়োজনীয়তা:
+- Docker ইনস্টল করা থাকতে হবে। ইনস্টলেশন গাইডের জন্য [Docker অফিসিয়াল সাইট](https://www.docker.com/get-started) দেখুন।
+
+### সেটআপ প্রক্রিয়া:
+1. **গিট ক্লোন:**
+   প্রথমে এই রিপোজিটরি ক্লোন করুন:
+   ```
+   git clone https://github.com/your-username/your-repository-name.git
+   ```
+2. **ডিরেক্টরিতে প্রবেশ করুন:**
+   ```
+   cd your-repository-name
+   ```
+3. **Dockerfile লিখুন:**
+   একটি `Dockerfile` তৈরি করুন এবং নিচের কোড যোগ করুন:
+   ```Dockerfile
+   # বেস ইমেজ নির্ধারণ
+   FROM node:14
+   
+   # ডিরেক্টরি সেট করুন
+   WORKDIR /usr/src/app
+   
+   # নির্ভরতা ইনস্টল করুন
+   COPY package*.json ./
+   RUN npm install
+   
+   # আপনার অ্যাপ্লিকেশন কোড কপি করুন
+   COPY . .
+   
+   # পোর্ট খোলা
+   EXPOSE 8080
+   
+   # অ্যাপ্লিকেশন রান করুন
+   CMD ["node", "app.js"]
+   ```
+4. **D
