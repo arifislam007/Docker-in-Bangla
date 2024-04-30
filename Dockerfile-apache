@@ -1,0 +1,14 @@
+# Use the official Apache image from Docker Hub
+FROM httpd:2.4
+
+# Optional: Copy a custom Apache configuration file
+COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
+
+# Copy the content of your site into the document root
+COPY ./public-html/ /usr/local/apache2/htdocs/
+
+# Expose HTTP and HTTPS ports
+EXPOSE 80 443
+
+# Start Apache in the foreground (default command in the httpd image)
+CMD ["httpd-foreground"]
