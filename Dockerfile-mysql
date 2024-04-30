@@ -1,0 +1,17 @@
+# Use the official MySQL image from the Docker Hub
+FROM mysql:5.7
+
+# Set environment variables for MySQL
+ENV MYSQL_DATABASE=mydatabase
+ENV MYSQL_USER=myuser
+ENV MYSQL_PASSWORD=mypassword
+ENV MYSQL_ROOT_PASSWORD=rootpassword
+
+# Optional: Import a database dump at the first start (make sure 'mydatabase.sql' is in the same directory as the Dockerfile)
+COPY mydatabase.sql /docker-entrypoint-initdb.d/
+
+# Expose port 3306 to access MySQL
+EXPOSE 3306
+
+# Set the default command to run when starting the container
+CMD ["mysqld"]
