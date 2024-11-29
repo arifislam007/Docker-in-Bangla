@@ -1,4 +1,4 @@
-# DevOps Tutorial: **"How to Set Up CI/CD Pipeline with Jenkins and Docker"**
+# DevOps Tutorial: **"Master Docker Basics: 1 Hour Crash Course - Part-1"**
 
 [![Watch the Tutorial](https://img.youtube.com/vi/etiTFZF_Ils/0.jpg)](https://www.youtube.com/watch?v=etiTFZF_Ils)
 
